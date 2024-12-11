@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,9 @@
   <title>Login</title>
 </head>
 <body>
+  <div class="logo">
+    <img src="{% static 'images/stepps-logo.svg' %}" alt="Logo" />
+  </div>
   <form action="{% url 'users:login' %}" method="POST">{% csrf_token %}
     <div class="inputField">
       <label for="email">User</label>
