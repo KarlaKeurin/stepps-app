@@ -13,20 +13,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-// login(email: string, password: string): Observable<any> {
-//   const body = {
-//     email: email,
-//     password: password
-//   }
-
-//   console.log(body);
-
-//   return this.http.post(this.loginUrl, body, {
-//     headers: { 'Content-Type': 'application/json' },
-//     withCredentials: true
-//   });
-// }
-
 login(email: string, password: string): Observable<any> {
   const body = `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
 

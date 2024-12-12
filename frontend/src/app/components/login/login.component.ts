@@ -27,6 +27,7 @@ export class LoginComponent {
       .subscribe({
         next: response => {
           alert('Login successful');
+          localStorage.setItem('user', JSON.stringify(response));
           this.router.navigate(['/dashboard']);
         },
         error: error => {
