@@ -1,0 +1,28 @@
+<div class="dashboard-container">
+  <header>
+    <img class="stepps-logo" src="images/stepps-logo.png" alt="Logo" />
+    <span class="user">{{ username }}</span>
+    <button class="logout" (click)="logout()">
+      <img src="images/logout-icon.png" alt="">
+    </button>
+  </header>
+
+  <section class="indicators">
+    <div class="indicator">
+      <h3>Total Number os People Who Passed Through This Area</h3>
+      <p>{{ data.daily_data.total_people_passed }}</p>
+    </div>
+    <div class="indicator">
+      <h3>Current Number of People in This Area</h3>
+      <p>{{ data.daily_data.current_people }}</p>
+    </div>
+    <div class="indicator">
+      <h3>Total Accidents Today</h3>
+      <p>{{ data.daily_data.total_accidents }}</p>
+    </div>
+    <div class="indicator">
+      <h3>Total Events Today</h3>
+      <p>{{ data.daily_data.total_events }}</p>
+    </div>
+  </section>
+</div>
