@@ -12,15 +12,19 @@ class Dashboard(models.Model):
     alerts_per_hour = models.JSONField(default=dict)  # {"08:00": 2, "09:00": 3}
 
     def calculate_daily_today(self):
-        today = timezone.now().date()
+        today = timezone.localtime(timezone.now()).date()
+        # registros = Dashboard.objects.all() 
+        # for registro in registros: 
+        #     print(f"ID: {registro}, Data de Criação: {registro.created_at}")
+        
         daily_data = Dashboard.objects.filter(created_at__date=today).aggregate(
             total_people_passed=Sum('total_people_passed'),
             current_people=Sum('current_people'),
             total_accidents=Sum('total_accidents'),
             total_events=Sum('total_events'),
         )
+        daily_data = {key: value if value is not None else 0 for key, value in daily_data.items()}
         return daily_data
-
 
     def calculate_alerts_per_hour(self):
         today = timezone.now().date()

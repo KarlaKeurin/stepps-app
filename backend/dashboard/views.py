@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
